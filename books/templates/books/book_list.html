@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container">
+
+    <div class="button-div">
+        <a class="button-style" href="{% url 'author_create' %}">Dodaj autora</a>
+        <a class="button-style" href="{% url 'book_create' %}">Dodaj Książkę</a>
+    </div>
+<table class="table table-bordered table-hover">
+<div class="">
+      <input class="" id="" name="q" type="text" placeholder="Search">
+      <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+</div>
+    <thead>
+        <tr>
+            <th>Tytuł książki</th>
+            <th>Język</th>
+            <th>Imię autora</th>
+            <th>Nazwisko autora</th>
+            <th>Narodowość autora</th>
+        </tr>
+    </thead>
+{% for book in book_list %}
+    <tbody>
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.language }}</td>
+            <td>{{ book.author.first_name }}</td>
+            <td>{{ book.author.last_name }}</td>
+            <td>{{ book.author.nationality }}</td>
+        </tr>
+    </tbody>
+{% endfor %}
+</table>
+{% include 'books/pagination.html' %}
+</div>
+{% endblock %}

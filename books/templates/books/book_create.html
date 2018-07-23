@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container">
+
+<form class="forms" action="" enctype='multipart/form-data' method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {{ form.image }}
+  <button class="btn btn-lg btn-primary btn-block btn-signi" type="submit">Dodaj książkę</button>
+</form>
+</div>
+{% endblock %}
